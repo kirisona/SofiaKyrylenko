@@ -104,7 +104,6 @@ $col: $columns;
 
   @media screen and(max-width: 520px) {
     width: 100%;
-    padding: 20px;
   }
 }
 
@@ -121,7 +120,7 @@ html {
   }
 
   @media screen and (max-width: 519px) {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
@@ -162,8 +161,8 @@ a {
     justify-content: space-around;
     align-items: center;
 
-    @media screen and (max-width: 520px) {
-      font-display: column;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
       justify-content: center;
     }
   }
@@ -180,7 +179,7 @@ a {
   &__start {
     display: inline-block;
     font-family: "helvetica_yuregular";
-    font-size: 0.94rem;
+    font-size: 1rem;
     color: #4090db;
     line-height: 2.19rem;
     vertical-align: middle;
@@ -188,6 +187,10 @@ a {
     border-radius: 5px;
     padding: 0 0.67em;
     margin-left: 1.37em;
+
+    @media screen and (max-width: 347px) {
+      margin-left: 0;
+    }
   }
 
   &__info {
@@ -210,16 +213,16 @@ a {
 
   &__date {
     font-family: "proxima_nova_rgregular";
-    font-size: 1.07rem;
+    font-size: 17px;
     text-transform: capitalize;
     padding-right: 0.82em;
-    line-height: 2rem;
+    line-height: 2;
   }
 
   [type="date"] {
-    font-size: 0.875rem;
+    font-size: 12px;
     font-family: "helvetica_yuregular";
-    height: 2rem;
+    height: 32px;
     background: none;
     border: 1px solid #cccccc;
     border-radius: 5px;
