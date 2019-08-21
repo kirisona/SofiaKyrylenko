@@ -1,0 +1,247 @@
+@font-face {
+  font-family: 'helvetica_yuregular';
+  src: url('../fonts/helveticaneue-webfont.woff2') format('woff2'),
+       url('../fonts/helveticaneue-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'proxima_novabold';
+  src: url('../fonts/proxima_nova_bold-webfont.woff2') format('woff2'),
+       url('../fonts/proxima_nova_bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'proxima_nova_rgregular';
+  src: url('../fonts/proxima_nova_regular-webfont.woff2') format('woff2'),
+       url('../fonts/proxima_nova_regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'proxima_novasemibold';
+  src: url('../fonts/proxima_nova_semibold-webfont.woff2') format('woff2'),
+       url('../fonts/proxima_nova_semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$colGups: 5px;
+
+$breakpoints: (
+  xs: 0,
+  sm: 520px,
+  md: 767px,
+  lg: 979px,
+  xl: 1622px
+);
+
+$columns: 12;
+
+@each $breakpoint in $breakpoints {
+  $name: nth($breakpoint, 1);
+  $size: nth($breakpoint, 2);
+
+  @media only screen and (min-width: $size) {
+    [class*="col-#{$name}"] {
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      padding-right: $colGups;
+      padding-left: $colGups;
+    }
+    @for $i from 1 through $columns {
+      .col-#{$name}-#{$i} {
+        flex-basis: 100% / $columns * $i;
+        max-width: 100% / $columns * $i;
+      }
+    }
+    @for $i from 1 through $columns {
+      .col-#{$name}-offset-#{$i} {
+        margin-left: 100% / $columns * $i;
+      }
+    }
+  }
+}
+
+//===========  mixins start ===========//
+
+// columns
+$columns: 12;
+$col: $columns;
+
+@mixin col($col, $columns) {
+  width: percentage($col/$columns);
+}
+
+//===========  mixins end ===========//
+
+@mixin col-create() {
+  @while $col > 0 {
+    .col-#{$col} {
+      @include col($col, $columns);
+    }
+
+    $col: $col - 1;
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  width: 936px;
+
+  @media screen and(max-width: 979px) and (min-width: 767px) {
+    width: 740px;
+  }
+
+  @media screen and(max-width: 767px) and (min-width: 520px) {
+    width: 500px;
+  }
+
+  @media screen and(max-width: 520px) {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+// для того, чтобы сократить код и не менять постоянно шрифты, прописана основа в media-query для единицы rem для всех breakpoints, которые использованы в данном проекте
+html {
+  font-size: 16px;
+
+  @media screen and (max-width: 979px) and (min-width: 767px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 766px) and (min-width: 520px) {
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 519px) {
+    font-size: 10px;
+  }
+}
+
+body {
+  background-color: #fafafa;
+}
+
+a {
+  color: inherit;
+}
+// layout
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+[class^="col"] {
+  width: 100%;
+  min-height: 1px;
+}
+
+@include col-create();
+
+.hero {
+  background-color: #fff;
+  padding: 17px 0 35px;
+
+  &__logo {
+    @media screen and (max-width: 767px) and (min-width: 520px) {
+      img {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 520px) {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  &__wrapper {
+    justify-content: space-around;
+    align-items: center;
+
+    @media screen and (max-width: 520px) {
+      font-display: column;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    font-family: 'Myriad Pro Regular', sans-serif;
+    font-size: 2.19rem;
+
+    @media screen and (max-width: 520px) {
+      text-align: center;
+    }
+  }
+
+  &__start {
+    display: inline-block;
+    font-family: 'helvetica_yuregular';
+    font-size: 0.94rem;
+    color: #4090db;
+    line-height: 2.19rem;
+    vertical-align: middle;
+    border: 1px solid #4090db;
+    border-radius: 5px;
+    padding: 0 0.67em;
+    margin-left: 1.37em;
+  }
+
+  &__info {
+    font-family: 'proxima_nova_rgregular';
+    line-height: 3.44rem;
+    font-size: 1.07rem;
+
+    &--quantity {
+      font-family: 'proxima_novabold';
+    }
+
+    span + span {
+      margin-left: 1.77em;
+    }
+
+    @media screen and (max-width: 520px) {
+      text-align: center;
+    }
+  }
+
+  &__date {
+    font-family: 'proxima_nova_rgregular';
+    font-size: 1.07rem;
+    text-transform: capitalize;
+    padding-right: 0.82em;
+    line-height: 2rem;
+  }
+
+  [type=date] {
+    font-size: 0.875rem;
+    font-family: 'helvetica_yuregular';
+    height: 2rem;
+    background: none;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+  }
+
+  [type=date] + [type=date] {
+    margin-left: 1.72em;
+  }
+
+  @media screen and (max-width: 520px) {
+    form {
+      justify-content: center;
+    }
+  }
+}
+
+.gallery {
+  padding: 71px 0;
+}
