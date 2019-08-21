@@ -219,17 +219,47 @@ a {
     line-height: 2;
   }
 
-  [type="date"] {
-    font-size: 12px;
+  form {
+    position: relative;
+  }
+
+  .datepicker-here {
+    font-size: 14px;
     font-family: "helvetica_yuregular";
     height: 32px;
     background: none;
     border: 1px solid #cccccc;
     border-radius: 5px;
+    width: 164px;
+    padding: 0 10px;
+    position: relative;
+    overflow: hidden;
   }
 
-  [type="date"] + [type="date"] {
+  .datepicker-here + .datepicker-here {
     margin-left: 1.72em;
+  }
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #000;
+    font-size: 14px;
+    opacity: 1; /* Firefox */
+    font-family: "helvetica_yuregular";
+  }
+  
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000;
+    font-size: 14px;
+    font-family: "helvetica_yuregular";
+  }
+  
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #000;
+    font-size: 14px;
+    font-family: "helvetica_yuregular";
   }
 
   @media screen and (max-width: 520px) {
