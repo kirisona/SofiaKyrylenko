@@ -262,7 +262,15 @@ a {
   @media screen and (max-width: 520px) {
     form {
       justify-content: center;
+      display: flex;
+      flex-direction: column;
+     align-items: center; 
     }
+
+    .datepicker-here + .datepicker-here {
+      margin: 10px 0 0;
+    }
+
   }
 }
 
