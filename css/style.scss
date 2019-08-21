@@ -1,36 +1,36 @@
 @font-face {
-  font-family: 'helvetica_yuregular';
-  src: url('../fonts/helveticaneue-webfont.woff2') format('woff2'),
-       url('../fonts/helveticaneue-webfont.woff') format('woff');
+  font-family: "helvetica_yuregular";
+  src: url("../fonts/helveticaneue-webfont.woff2") format("woff2"),
+    url("../fonts/helveticaneue-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'proxima_novabold';
-  src: url('../fonts/proxima_nova_bold-webfont.woff2') format('woff2'),
-       url('../fonts/proxima_nova_bold-webfont.woff') format('woff');
+  font-family: "proxima_novabold";
+  src: url("../fonts/proxima_nova_bold-webfont.woff2") format("woff2"),
+    url("../fonts/proxima_nova_bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'proxima_nova_rgregular';
-  src: url('../fonts/proxima_nova_regular-webfont.woff2') format('woff2'),
-       url('../fonts/proxima_nova_regular-webfont.woff') format('woff');
+  font-family: "proxima_nova_rgregular";
+  src: url("../fonts/proxima_nova_regular-webfont.woff2") format("woff2"),
+    url("../fonts/proxima_nova_regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'proxima_novasemibold';
-  src: url('../fonts/proxima_nova_semibold-webfont.woff2') format('woff2'),
-       url('../fonts/proxima_nova_semibold-webfont.woff') format('woff');
+  font-family: "proxima_novasemibold";
+  src: url("../fonts/proxima_nova_semibold-webfont.woff2") format("woff2"),
+    url("../fonts/proxima_nova_semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
-$colGups: 5px;
+$colGups: 15px;
 
 $breakpoints: (
   xs: 0,
@@ -151,13 +151,7 @@ a {
   padding: 17px 0 35px;
 
   &__logo {
-    @media screen and (max-width: 767px) and (min-width: 520px) {
-      img {
-        width: 100%;
-      }
-    }
-
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 767px) {
       img {
         width: 100%;
       }
@@ -175,7 +169,7 @@ a {
   }
 
   &__title {
-    font-family: 'Myriad Pro Regular', sans-serif;
+    font-family: "Myriad Pro Regular", sans-serif;
     font-size: 2.19rem;
 
     @media screen and (max-width: 520px) {
@@ -185,7 +179,7 @@ a {
 
   &__start {
     display: inline-block;
-    font-family: 'helvetica_yuregular';
+    font-family: "helvetica_yuregular";
     font-size: 0.94rem;
     color: #4090db;
     line-height: 2.19rem;
@@ -197,12 +191,12 @@ a {
   }
 
   &__info {
-    font-family: 'proxima_nova_rgregular';
+    font-family: "proxima_nova_rgregular";
     line-height: 3.44rem;
     font-size: 1.07rem;
 
     &--quantity {
-      font-family: 'proxima_novabold';
+      font-family: "proxima_novabold";
     }
 
     span + span {
@@ -215,23 +209,23 @@ a {
   }
 
   &__date {
-    font-family: 'proxima_nova_rgregular';
+    font-family: "proxima_nova_rgregular";
     font-size: 1.07rem;
     text-transform: capitalize;
     padding-right: 0.82em;
     line-height: 2rem;
   }
 
-  [type=date] {
+  [type="date"] {
     font-size: 0.875rem;
-    font-family: 'helvetica_yuregular';
+    font-family: "helvetica_yuregular";
     height: 2rem;
     background: none;
     border: 1px solid #cccccc;
     border-radius: 5px;
   }
 
-  [type=date] + [type=date] {
+  [type="date"] + [type="date"] {
     margin-left: 1.72em;
   }
 
@@ -244,4 +238,147 @@ a {
 
 .gallery {
   padding: 71px 0;
+
+  @media screen and (max-width: 767px) {
+    padding: 30px 0;
+  }
+
+  &__wrapper {
+    justify-content: space-between;
+    padding: 0;
+    margin-left: -15px;
+
+    @media screen and (max-width: 767px) {
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+
+    [class^=col] {
+      padding: 0 7px;
+    }
+  }
+
+  &__item:hover .gallery__video {
+    opacity: 1;
+    transition: 0.5s ease-in;
+  }
+
+  &__item:hover .gallery__image {
+    transform: scale(1.2);
+    transition: 1s ease-in;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 100%;
+      height: 99.2%;
+      position: absolute;
+      top: 0;
+      background-color: rgba($color: #000000, $alpha: 0.5);
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__info {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    font-size: 17px;
+    font-family: "proxima_novabold";
+    box-sizing: border-box;
+    line-height: 2;
+
+    .fa {
+      position: relative;
+      left: -3px;
+    }
+
+    &--bottom {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 20%;
+    }
+
+    &--center {
+      position: absolute;
+      width: 100%;
+      top: 55%;
+      transform: translateY(-50%);
+    }
+
+    &-text {
+      font-family: "proxima_novasemibold";
+    }
+
+    &-count {
+      img {
+        padding-right: 2px;
+        position: relative;
+        top: 3px;
+      }
+    }
+
+    [class^=col] {
+      padding: 0;
+    }
+
+    .row {
+      padding-left: 10px;
+    }
+  }
+
+  &__video {
+    position: absolute;
+    top: 15px;
+    right: 12px;
+    opacity: 0.6;
+  }
+
+  &__upload {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    font-family: "proxima_novasemibold";
+    font-size: 17px;
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: 1px solid #000000;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    line-height: 2.33;
+    padding: 0 2.42em;
+    border-radius: 14px;
+    font-family: "proxima_nova_rgregular";
+    margin-top: 1.7em;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:hover,
+    &:focus {
+      background-color: #000;
+      color: #fff;
+      transition: 0.5s ease-in;
+    }
+  }
 }
