@@ -223,7 +223,7 @@
           if (typeof lang == 'string') {
               this.loc = $.fn.datepicker.language[lang];
               if (!this.loc) {
-                  console.warn('Can\'t find language "' + lang + '" in Datepicker.language, will use "ru" instead');
+                  console.warn('Can\'t find language "' + lang + '" in Datepicker.language, will use "en" instead');
                   this.loc = $.extend(true, {}, $.fn.datepicker.language.en)
               }
 
@@ -1473,9 +1473,9 @@
 
   $.fn.datepicker.language = {
       en: {
-          days: ['Sunday', 'Monday', 'Tuesday', 'Wensday', 'Thursday', 'friday', 'Saturday'],
+          days: ['Sunday', 'Monday', 'Tuesday', 'Wednseday', 'Thursday', 'Friday', 'Saturday'],
           daysShort: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
-          daysMin: ['Su','Mo','Tu','We','Th','Fr','Sa'],
+          daysMin: ['Su', 'Mo','Tu','We','Th','Fr','Sa'],
           months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
           monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
           today: 'Today',

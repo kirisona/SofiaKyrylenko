@@ -219,10 +219,6 @@ a {
     line-height: 2;
   }
 
-  form {
-    position: relative;
-  }
-
   .datepicker-here {
     font-size: 14px;
     font-family: "helvetica_yuregular";
@@ -232,8 +228,6 @@ a {
     border-radius: 5px;
     width: 164px;
     padding: 0 10px;
-    position: relative;
-    overflow: hidden;
   }
 
   .datepicker-here + .datepicker-here {
@@ -243,23 +237,26 @@ a {
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #000;
-    font-size: 14px;
-    opacity: 1; /* Firefox */
     font-family: "helvetica_yuregular";
+    font-size: 14px;
+
+    opacity: 1; /* Firefox */
   }
   
   :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: #000;
-    font-size: 14px;
     font-family: "helvetica_yuregular";
+    font-size: 14px;
+
   }
   
   ::-ms-input-placeholder {
     /* Microsoft Edge */
     color: #000;
-    font-size: 14px;
     font-family: "helvetica_yuregular";
+    font-size: 14px;
+
   }
 
   @media screen and (max-width: 520px) {
